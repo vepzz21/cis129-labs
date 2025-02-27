@@ -2,18 +2,20 @@
 Module 4 Lab
 Emmanuel Piña-Zelinger
 CIS 129
-02/25/2025
+02/27/2025
 This program modifies the retail company's bonus portion to include 
 different levels and types and eliminates the day-off program.
 '''
 
 
 def main():
-    #declare local variables
-    monthlySales = 0
-    storeAmount = 0
-    empAmount = 0
-    salesIncrease = 0
+    #declare and initialize variables
+    prompt = "Please input monthly sales: "
+    monthlySales = getSales(prompt)
+    calcMonthlySales = calcStoreBonus(monthlySales)
+    salesIncrease = getIncrease()
+    calcSalesIncrease = calcEmpBonus(salesIncrease)
+    printBonus(calcMonthlySales, calcSalesIncrease)
 
 def getSales(prompt):
     #This function gets the monthly sales
@@ -34,7 +36,7 @@ def calcStoreBonus(monthlySales):
         storeAmount = 0
     return storeAmount
 
-def getIncrease(prompt):
+def getIncrease():
     #This function gets the percent of increase in sales
     salesIncrease = float(input("Enter the percent of sales increase in decimal format: "))
     salesIncrease = salesIncrease/100
